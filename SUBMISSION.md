@@ -23,8 +23,8 @@ Endpoints/Jobs encouraged (not required).
 - [ ] Eligible: age of majority where you live (18+ in CT) — confirm
 - [x] Runs on Nebius Token Factory (runtime calls) and uses NVIDIA open models (Nemotron 3.5 Super-VL, 3.5 Lightning, 3 Super; Parakeet)
 - [x] Newly created during the Submission Period (Aug 26 – Oct 30; started Oct 16)
-- [ ] Public repo (GitHub/GitLab/Bitbucket) with all source, assets and instructions
-- [ ] Open source LICENSE (MIT / Apache 2.0) detectable in the repo's About section
+- [x] Public repo: https://github.com/hansonq888/margin (keep it complete as we build)
+- [x] MIT LICENSE, detected by GitHub (shows in About)
 - [ ] README: setup + how to run; **highlight NVIDIA models used, where Token Factory helped, other Nebius tools**
 - [ ] Working demo URL: hosted demo and/or test build (GitHub release + install steps); free, unrestricted access through Dec 15
 - [ ] Demo video < 3 min, public on YouTube, shows it working on the real device; no copyrighted music; avoid third-party trademarks/logos

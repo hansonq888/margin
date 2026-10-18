@@ -1,0 +1,149 @@
+{
+  "course": "MATH 112",
+  "blocks": [
+    {
+      "id": 1,
+      "version": 1,
+      "bbox": [
+        150,
+        160,
+        560,
+        360
+      ],
+      "clipped": [],
+      "problems": [
+        [
+          "Solve 3x + 4 = 19",
+          "3x = 15",
+          "x = 5"
+        ]
+      ],
+      "lines": [
+        {
+          "text": "Solve 3x + 4 = 19",
+          "latex": null,
+          "sympy": "3*x + 4 = 19",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": true
+        },
+        {
+          "text": "3x = 15",
+          "latex": null,
+          "sympy": "3*x = 15",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": false
+        },
+        {
+          "text": "x = 5",
+          "latex": null,
+          "sympy": "x = 5",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": false
+        }
+      ],
+      "circled_line": null,
+      "flags": []
+    },
+    {
+      "id": 2,
+      "version": 1,
+      "bbox": [
+        150,
+        420,
+        560,
+        560
+      ],
+      "clipped": [],
+      "problems": [
+        [
+          "Solve 5x - 2 = 13",
+          "5x = 11"
+        ]
+      ],
+      "lines": [
+        {
+          "text": "Solve 5x - 2 = 13",
+          "latex": null,
+          "sympy": "5*x - 2 = 13",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": true
+        },
+        {
+          "text": "5x = 11",
+          "latex": null,
+          "sympy": "5*x = 11",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": false
+        }
+      ],
+      "circled_line": null,
+      "flags": [
+        {
+          "line": "5x = 11",
+          "reason": "Added 2 to 13 incorrectly: 13 + 2 = 15, not 11.",
+          "hint": "What do you do to both sides to cancel the -2?"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "version": 1,
+      "bbox": [
+        150,
+        620,
+        560,
+        820
+      ],
+      "clipped": [],
+      "problems": [
+        [
+          "Solve x^2 - 16 = 0",
+          "x^2 = 16",
+          "x = 4"
+        ]
+      ],
+      "lines": [
+        {
+          "text": "Solve x^2 - 16 = 0",
+          "latex": null,
+          "sympy": "x**2 - 16 = 0",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": true
+        },
+        {
+          "text": "x^2 = 16",
+          "latex": null,
+          "sympy": "x**2 = 16",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": false
+        },
+        {
+          "text": "x = 4",
+          "latex": null,
+          "sympy": "x = 4",
+          "kind": "math",
+          "complete": true,
+          "confidence": 0.95,
+          "new_problem": false
+        }
+      ],
+      "circled_line": 2,
+      "flags": []
+    }
+  ],
+  "talk": []
+}

@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+capture/.build/
+frames/
+experiments/results/
+experiments/notes/
+.DS_Store
+overlay-app/.build/
+.claude/
+# Saved conversations (what you said to Margin) - personal
+experiments/data/talk_session.json
+*.session.json

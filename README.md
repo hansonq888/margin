@@ -121,6 +121,21 @@ Results on the 16 planted problems (2026-10-17):
 
 SymPy misses the semantic errors (sin/cos swap, missing chain rule, inverted mole ratio); the Nemotron layers catch them. On one correct problem Lightning raised a false alarm that Super correctly overruled.
 
+**University level** (`--data experiments/data/university_errors.json`; 16 problems across calculus, integration by
+parts, eigenvalues, Lagrangian optimization, probability, the Master Theorem, ODEs and series; 2026-10-19):
+
+| Configuration | Caught (right line) | False alarms | Median |
+|---|---|---|---|
+| SymPy only | 1/8 | 0/8 | ~0 s |
+| Lightning screen → Super confirm | 6/8 | 0/8 | 1.9 s |
+| Lightning screen → **Ultra** confirm | 5/8 | 0/8 | 2.6 s |
+| **Super screen → Super confirm** (default) | **7/8** | **0/8** | 2.2 s |
+
+At this level the fast screen was the bottleneck (it never flagged the misses), so screening now runs on Nemotron 3
+Super; it's in the background, so the extra time isn't felt. Conversation stays on Lightning for speed. Ultra
+wasn't better here (its misses were run-to-run variance on 8 cases), so Super is the default. The one remaining
+miss is a sign error in integration by parts.
+
 **5. End to end on real handwriting** (screenshot → Super-VL → checker):
 
 ```bash

@@ -1,4 +1,4 @@
-"""Checker cascade: SymPy (exact) -> Nemotron Nano (screen, recall) -> Nemotron Super (confirm, precision).
+"""Checker cascade: SymPy (exact) -> Nemotron screen (recall) -> Nemotron Super (confirm, precision).
 
 Nothing is flagged to the student unless SymPy can't vouch for the step AND Super confirms it.
 """
@@ -91,7 +91,7 @@ def check(
 
     # 1. Screen with the fast model.
     screen = client.chat_json(
-        client.cfg.model_fast,
+        client.cfg.model_screen,
         [{"role": "user", "content": SCREEN_PROMPT.format(course=course, question=question, lines=numbered, algebra=algebra_text)}],
         max_tokens=800,
     )
@@ -105,7 +105,11 @@ def check(
             continue
         if algebra.get(n) and algebra[n].verdict == Verdict.EQUIVALENT:
             continue  # exact algebra overrides the model
-        if item.get("status") == "error" and float(item.get("confidence") or 0) >= screen_threshold:
+        status = item.get("status")
+        confidence = float(item.get("confidence") or 0)
+        # "unsure" goes to the confirming model too: on university-level work the fast screen often hedges
+        # on real mistakes, and the confirm step is what protects against false alarms.
+        if (status == "error" and confidence >= screen_threshold) or status == "unsure":
             candidates[n] = str(item.get("reason") or "")
     for n, c in algebra.items():
         if c.verdict == Verdict.NOT_EQUIVALENT:

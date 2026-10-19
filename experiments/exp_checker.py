@@ -21,13 +21,20 @@ def main() -> None:
     ap.add_argument("--offline", action="store_true", help="SymPy only, no model calls")
     ap.add_argument("--data", default=str(ROOT / "data" / "planted_errors.json"))
     ap.add_argument("-v", "--verbose", action="store_true")
+    ap.add_argument("--screen", default=None, help="override the screening model")
+    ap.add_argument("--smart", default=None, help="override the confirming model (e.g. nvidia/Nemotron-3-Ultra-550b-a55b)")
     args = ap.parse_args()
 
     client = None
     if not args.offline:
         from margin.nebius import Nebius
 
+        import dataclasses
+
         client = Nebius()
+        overrides = {k: v for k, v in {"model_screen": args.screen, "model_smart": args.smart}.items() if v}
+        client.cfg = dataclasses.replace(client.cfg, **overrides)
+        print(f"screen: {client.cfg.model_screen}   confirm: {client.cfg.model_smart}\n")
 
     problems = json.loads(Path(args.data).read_text())
     caught = missed = wrong_line = false_alarms = clean_ok = 0
